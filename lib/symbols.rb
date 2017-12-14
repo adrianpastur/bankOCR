@@ -1,5 +1,6 @@
 require 'pry'
 
+#Symbols class is the answer for the user case 1
 class Symbols
 
   def initialize
@@ -12,9 +13,10 @@ class Symbols
     @symbol_6 = '| |'
     @symbol_7 = ' _ '
     numbers_from_symbols_for_verifying
+    #following is a default array used to test the app.
     @entries_as_symbols = [['   ', ' _ ', ' _ ', ' _ ', ' _ ', ' _ ', ' _ ', '   ', ' _ '],
-              [ '|_|', '|_|', '| |', '| |', '|_ ', '  |', '  |', '  |', '|_ '],
-              [ '  |', ' _|', '|_|', '|_|', '|_|', '  |', '  |', '  |', ' _|']]
+                          [ '|_|', '|_|', '| |', '| |', '|_ ', '  |', '  |', '  |', '|_ '],
+                          [ '  |', ' _|', '|_|', '|_|', '|_|', '  |', '  |', '  |', ' _|']]
   end
   attr_accessor :entries_as_symbols, :converted_number
   attr_reader :symbol_1, :symbol_2, :symbol_3, :symbol_4, :symbol_5, :symbol_6, :symbol_7
@@ -34,6 +36,7 @@ class Symbols
     @number_nine = symbol_7 + symbol_5 + symbol_3
   end
 
+  #converts numbers to symbols
   def convert_entries_to_symbols(entry)
     entry = entry.to_s.chars.map(&:to_i)
     numbers_to_symbols_helper = ''
@@ -84,6 +87,7 @@ class Symbols
     end
   end
 
+#returns number as array from array of symbols.
   def identify_numbers_from_symbols
     index = 0
     @converted_number = []

@@ -14,7 +14,7 @@ class Entries
   attr_reader :symbols, :entries_as_symbols
 
 
-# code to validate entry before passing it to symbols.rb
+# code to validate entry before passing it to symbols.rb - does not work.
   # def entry_validation(entry)
   #   entry_number_of_digits(entry)
   #   true
@@ -27,6 +27,7 @@ class Entries
   #   return true if entry.entry.to_s.chars.map(&:to_i).count != 9
   # end
 
+#User story 3 solution
   def print_account_numbers
     ac_nmb = get_account_numbers
     ac_nmb.each do |subarray|
@@ -36,7 +37,7 @@ class Entries
       elsif is_valid(subarray) == true
         a = subarray.join('')
         puts a
-      else
+      elsif is_valid(subarray) == false
          a = subarray.join('') + ' ERR'
          puts a
       end
@@ -53,6 +54,8 @@ class Entries
     account_numbers << symbols.identify_numbers_from_symbols
   end
 
+
+ #User story 2 solution
   def checksum_calculation(account_number)
     number_index = 9
     counter = 0
@@ -67,6 +70,10 @@ class Entries
   end
 
   def is_valid(subarray)
-    return true if checksum_calculation(subarray) % 11 == 0 else false
+    if checksum_calculation(subarray) % 11 == 0
+      true
+    else
+      false
+    end
   end
 end
