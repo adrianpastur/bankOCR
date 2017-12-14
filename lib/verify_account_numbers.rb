@@ -24,9 +24,9 @@ class Verify
         @possible_solutions = possible_solutions.each.map(&:to_i)
         puts "#{passed_accounts[accounts_counter].join('')} AMB #{possible_solutions}"
       elsif solutions_counter == 1
-        puts "#{accounts_being_verified[0].join('')} ERR"
-      elsif solutions_counter == 0
         puts "#{accounts_being_verified[0].join('')}"
+      elsif solutions_counter == 0
+        puts "#{accounts_being_verified[0].join('')} ILL"
       end
       accounts_counter += 1
     end
